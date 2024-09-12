@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './chat.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../../assets/images/logo.png';
@@ -6,25 +6,47 @@ import { faMoon, faSun, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const Chat = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState('');
+  const chatContainerRef = useRef(null);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
+
+  const handleSendMessage = () => {
+    if (input.trim()) {
+      setMessages([...messages, { text: input, type: 'user' }]);
+      setInput('');
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSendMessage();
+    }
+  };
+
+  React.useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   return (
     <div
       id="container"
       className={isDarkMode ? 'dark-mode' : 'light-mode'}
       style={{
-        backgroundColor: isDarkMode ? '#18181B' : '#FAFAFA', // Background color for the entire container
-        color: isDarkMode ? '#FFFFFF' : '#000000', // Text color for the entire container
+        backgroundColor: isDarkMode ? '#18181B' : '#FAFAFA', 
+        color: isDarkMode ? '#FFFFFF' : '#000000', 
       }}
     >
       <div
         id="leftPart"
         style={{
-          backgroundColor: isDarkMode ? '#27272A' : '#E0E0E0', // Different background color for left part
-          border: isDarkMode?'1px solid #27272A':'1px solid #B5C0D0',
+          backgroundColor: isDarkMode ? '#27272A' : '#E0E0E0', 
+          border: isDarkMode ? '1px solid #27272A' : '1px solid #B5C0D0',
         }}
       >
         <div
@@ -32,14 +54,14 @@ const Chat = () => {
           onClick={toggleTheme}
           title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           style={{
-            color: isDarkMode ? '#FFFFFF' : '#000000', // Toggle button icon color
+            color: isDarkMode ? '#FFFFFF' : '#000000', 
           }}
         >
           <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} id="toggleIcon" />
           <div
             id="appName"
             style={{
-              color: isDarkMode ? '#FFFFFF' : '#000000', // App name color
+              color: isDarkMode ? '#FFFFFF' : '#000000', 
             }}
           >
             <img src={Logo} alt="Logo" />
@@ -50,31 +72,40 @@ const Chat = () => {
       <div
         id="rightPart"
         style={{
-          backgroundColor: isDarkMode ? '#1F1F23' : '#FAFAFA', // Different background color for right part
+          backgroundColor: isDarkMode ? '#1F1F23' : '#FAFAFA', 
         }}
       >
         <div
-          id="chatDiscusion"
+          id="chatDiscussion"
+          ref={chatContainerRef}
+          style={{
+            padding: '10px',
+            height: 'calc(100vh - 150px)', 
+            overflowY: 'auto',
+          }}
         >
-          {/* Chat messages go here */}
+          {messages.map((msg, index) => (
+            <div key={index} className={msg.type} style={{ marginBottom: '10px' }}>
+              {msg.text}
+            </div>
+          ))}
         </div>
         <div id="chatInput">
           <input
             type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyPress}
             placeholder="Hey! Feel free to ask me any legal questions you may have."
             style={{
-              backgroundColor: isDarkMode ? '#444444' : '#FFFFFF', // Input field background color
-              color: isDarkMode ? '#FFFFFF' : '#000000', // Input field text color
-              borderColor: isDarkMode ? '#555555' : '#CCCCCC', // Input field border color
+              backgroundColor: isDarkMode ? '#444444' : '#FFFFFF', 
+              color: isDarkMode ? '#FFFFFF' : '#000000', 
+              borderColor: isDarkMode ? '#555555' : '#CCCCCC', 
             }}
           />
-          
-          {/* New Chatbot-Style Send Button */}
           <button
             className="new-send-button"
-            onClick={() => {
-              /* Handle send action for the new button */
-            }}
+            onClick={handleSendMessage}
             title="Send"
           >
             <FontAwesomeIcon icon={faArrowRight} />

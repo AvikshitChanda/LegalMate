@@ -119,10 +119,16 @@
   }
   
   
-  #chatDiscusion {
+  #chatDiscussion {
+    font-family: nueLight;
     width: 100%;
     height: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 4vw 12vw;
+    box-sizing: border-box;   
   }
+  
   
   .theme-toggle-button {
     cursor: pointer;
