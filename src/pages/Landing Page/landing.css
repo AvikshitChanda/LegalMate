@@ -1,0 +1,581 @@
+@font-face {
+    font-family: nueLight;
+    src: url(./assets/fonts/NeueHaasDisplayMediu.ttf);
+  }
+@font-face {
+    font-family: nueThin;
+    src: url(../../assets/fonts/NeueHaasDisplayXThin.ttf);
+  }
+@font-face {
+    font-family: nueThick;
+    src: url(../../assets/fonts/NeueHaasDisplayRoman.ttf);
+  }
+@font-face {
+    font-family: nueBold;
+    src: url(../../assets/fonts/NeueHaasDisplayBold.ttf);
+  }
+  
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#landingContainer {
+  
+   
+}
+#mainContainer{
+    /* background-image: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%); */
+    background-color: #0D0B18;
+   
+}
+
+#part1 {
+    width: 100%;
+    height: 100vh;
+    /* background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%); */
+    
+}
+
+#navBar {
+    width: 100%;
+    height: 17vh;
+  
+   display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+}
+
+#logo {
+    width: auto;
+    height: 100%;
+    margin: 0 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor:pointer;
+  
+}
+#logo h2{
+    font-family: nueLight;
+    font-size: 2vw;
+    color: #3FA2F6;
+}
+
+
+#logo img{
+    margin-left: 2vw;
+    margin-right: 0.7vw;
+    width: 45px;
+    height: 45px;
+    
+}
+
+#options{
+    height: 100%;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+    padding-left: 8vw;
+    gap: 3vw;
+    outline: none;
+}
+
+#options h4{
+    font-family: nueThin;
+   font-weight: 900;
+   font-size: 2.5vh;
+   padding: 7px 20px;
+   
+   border-radius: 50px;
+   cursor: pointer;
+   position: relative;
+   transition: all ease 0.3s;
+   overflow: hidden;
+   
+   
+}
+#options h4 a{
+    text-decoration: none;
+    color: #ffffff;
+    z-index: 9;
+    letter-spacing: 2px;
+    
+    position: relative;
+    
+}
+
+#options h4:hover a{
+    color: white;
+}
+
+#options h4::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #0574d5;
+    left: 0;
+    bottom:-100%;
+    border-radius: 50%;
+    transition: all ease 0.3s;
+  
+}
+
+#options h4:hover::after{
+    bottom: 0;
+    border-radius: 0;
+    
+}
+
+#mainLandingContent {
+    margin: 7vw 6.5vw;
+    position: relative;
+   color:#222222;
+   
+}
+#Taglinegradient{
+   color:#3FA2F6;
+   font-family: nueLight;
+   font-size: 9em;
+   font-weight: 900;
+   line-height: 0.81;
+  
+   
+    
+}
+#mainLandingContent h2 {
+    font-family: nueLight;
+    font-size: 9em;
+    font-weight: 900;
+    line-height: 0.81;
+    color: #ffffff;
+}
+#mainLandingContent h3{
+    font-family: nueLight;
+    margin-top: 2vh;
+    font-weight: 100;
+    display: flex;
+    margin-left: 1vw;
+    font-size: 2.25vh;
+}
+#videoContainer {
+    position: absolute;
+    /* background-color: red; */
+    width: 50vw;
+    height: 80vh;
+    border-radius: 20px;
+    right: -5vw;
+    top: -15vh;
+    display: flex;
+    gap: 4vh;
+    align-items: center; /* Center videos vertically */
+    justify-content: center;
+}
+
+
+#videoContainer1 {
+    display: flex;
+    flex-direction: column;
+    width: 45%;/* Adjusted width for better spacing */
+    height: 70%; /* Adjusted height to fit within container */
+    gap: 5vh;
+    /* background-color: yellow; */
+   margin-top: 1vh;
+}
+#videoContainer2{
+ 
+    display: flex;
+    flex-direction: column;
+    width: 45%; /* Adjusted width for better spacing */
+    height: 70%; /* Adjusted height to fit within container */
+    gap: 5vh;
+    /* background-color: yellow; */
+    margin-top: 10vh;
+}
+
+#videoContainer1 video, #videoContainer2 video {
+    margin: 0 4px;
+    width: 97%;
+    height: auto; /* Preserve aspect ratio */
+    border-radius: 12px; /* Adjust this value for more or less curve */
+    overflow: hidden; /* Ensure the video content doesn't overflow the rounded corners */
+    transition: all ease 0.3s;
+}
+
+#videoContainer1 video:hover, #videoContainer2 video:hover{
+    transform: translateY(-15px);
+}
+
+#part2{
+    width: 100%;
+    height: 100vh;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+#part2 h2{
+    margin: 2vh 5vw;
+    font-family: 'nueLight',sans-serif;
+  font-size: 12vh;
+  color: #ffffff;
+}
+
+#about{
+    margin: 6vh 3.5vw;
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    padding: 2vw;
+    color: #ffffff;
+    /* background-color: red; */
+    
+}
+
+#about p{
+    margin: 4vh 0 ;
+    padding:  0;
+    font-size: 1.6vw;
+    font-family: 'nueLight',sans-serif;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+#imageAbout {
+    margin: 6vh 3.5vw;
+    width: 28%;
+    height: 75vh;
+    background-color: yellow;
+    border-radius: 10px;
+    overflow: hidden; /* Ensures any overflow is hidden */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imageAbout img{
+    width: 100%;
+    height: 100%;
+}
+
+
+#part3{
+    width: 100%;
+    height: 100vh;
+    font-family: 'nueLight',sans-serif;
+}
+#part3 h1{
+    font-size: 5.5vw;
+    margin-top: 9.5vh;
+    margin-left: 11vw;
+    color: #ffffff;
+   
+}
+
+#part3 #teamMates{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+   
+}
+
+
+.tm {
+    width: 18vw;
+    height: 46vh;
+    position: relative;
+    top: 16vh;  
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #3fa1f6b1;
+    
+}
+.contentBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6); 
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 10px;
+    text-align: center;
+    border-radius: 12px;
+}
+.contentBox h2{
+    margin-bottom: 3vh;
+}
+
+.tm img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 12px;
+}
+.tm:hover .contentBox {
+    opacity: 1;
+}
+
+.tm:hover img {
+    transform: scale(1.1); 
+}
+#image1{
+    width: 100%;
+    height: 100%;
+   
+}
+#image2{
+    width: 100%;
+    height: 100%;
+    
+}
+#image3{
+    width: 100%;
+    height: 100%;
+  
+}
+#image4{
+    width: 100%;
+    height: 100%;
+    
+}
+
+#writtenContent{
+    position: relative;
+   z-index: 2;
+}
+#bluge1, #bluge2, #bluge3, #bluge4 {
+    width: 21vw;
+    height: 49vh;
+    border-radius: 50%;
+    background-image: linear-gradient(60deg, #11235A 0%, #525CEB 37%, #40A2D8 65%, #5FBDFF 100%);
+    position: absolute;
+    filter: blur(70px) brightness(70%);
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+#bluge1 {
+    top: 0;
+    left: 10vw;
+    animation-name: amoeba1;
+    animation-duration: 8s;
+}
+
+#bluge2 {
+    top: 0;
+    left: 10vw;
+    animation-name: amoeba2;
+    animation-duration: 8s;
+}
+
+#bluge3 {
+    top: 0;
+    left: 10vw;
+    animation-name: amoeba3;
+    animation-duration: 8s;
+}
+
+#bluge4 {
+    top: 0;
+    left: 10vw;
+    animation-name: amoeba4;
+    animation-duration: 8s;
+}
+
+@keyframes amoeba1 {
+    0% {
+        transform: translate(30%, -30%) rotate(0deg);
+    }
+    25% {
+        transform: translate(-10%, 25%) rotate(45deg);
+    }
+    50% {
+        transform: translate(-20%, -10%) rotate(90deg);
+    }
+    75% {
+        transform: translate(5%, 20%) rotate(135deg);
+    }
+    100% {
+        transform: translate(30%, -30%) rotate(180deg);
+    }
+}
+
+@keyframes amoeba2 {
+    0% {
+        transform: translate(-20%, 20%) rotate(0deg);
+    }
+    25% {
+        transform: translate(-10%, -20%) rotate(45deg);
+    }
+    50% {
+        transform: translate(15%, 10%) rotate(90deg);
+    }
+    75% {
+        transform: translate(20%, -15%) rotate(135deg);
+    }
+    100% {
+        transform: translate(-20%, 20%) rotate(180deg);
+    }
+}
+
+@keyframes amoeba3 {
+    0% {
+        transform: translate(10%, -10%) rotate(0deg);
+    }
+    25% {
+        transform: translate(-15%, 15%) rotate(45deg);
+    }
+    50% {
+        transform: translate(20%, -20%) rotate(90deg);
+    }
+    75% {
+        transform: translate(-10%, 25%) rotate(135deg);
+    }
+    100% {
+        transform: translate(10%, -10%) rotate(180deg);
+    }
+}
+
+@keyframes amoeba4 {
+    0% {
+        transform: translate(-25%, 10%) rotate(0deg);
+    }
+    25% {
+        transform: translate(20%, -10%) rotate(45deg);
+    }
+    50% {
+        transform: translate(-10%, 20%) rotate(90deg);
+    }
+    75% {
+        transform: translate(15%, -15%) rotate(135deg);
+    }
+    100% {
+        transform: translate(-25%, 10%) rotate(180deg);
+    }
+}
+
+#buldgeContainer{
+    position: relative;
+    top: -50vh;
+    width: 30vw;
+    height: 50vh;
+  
+    z-index: 1;
+}
+
+#part4 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#part4 h1 {
+    color: white;
+    font-family: nueBold;
+    font-size: 5vw;
+    margin-bottom: 2rem; /* Add some space between the heading and form */
+    text-align: center;
+}
+#part4 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0D0B18; /* Page background color */
+}
+
+#part4 h1 {
+    color: white;
+    font-family: nueBold;
+    font-size: 5vw;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+#form {
+    font-family: nueLight;
+    width: 35%;
+    background: #292639; /* Contrasting form background color */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 5vh;
+    position: relative; /* Ensure the toast can be positioned relative to this container */
+}
+
+#form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+}
+
+#form input[type="text"],
+#form input[type="email"],
+#form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: none; /* Remove the border */
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    background-color: #1F1B29; /* Slightly lighter background for inputs */
+    color: white; /* Text color for contrast */
+    outline: none; /* Remove the focus outline */
+}
+
+#form textarea {
+    height: 150px;
+    resize: none; /* Prevent resizing of the textarea */
+}
+
+#form input[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #0574D5;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+#form input[type="submit"]:hover {
+    background-color:#023766;
+}
+/* toastStyles.css */
+.toast-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 1rem; /* Adjust margin as needed */
+    z-index: 9999; /* Ensure it is above other content */
+  }
+  

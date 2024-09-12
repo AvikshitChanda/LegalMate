@@ -1,0 +1,143 @@
+@font-face {
+    font-family: nueLight;
+    src: url('./assets/fonts/NeueHaasDisplayMediu.ttf');
+  }
+  @font-face {
+    font-family: nueThick;
+    src: url('../../assets/fonts/NeueHaasDisplayRoman.ttf');
+  }
+  
+  body {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .dark-mode {
+    background-color: #18181b;
+    color: #ffffff;
+    --input-bg-color: #000000;
+    --input-text-color: #ffffff;
+  }
+  
+  .light-mode {
+    background-color: #fafafa;
+    color: #000000;
+    --input-bg-color: #ffffff;
+    --input-text-color: #000000;
+  }
+  
+  #container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  #leftPart {
+    width: 17%;
+    background-color: #27272a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+  }
+  
+  #appName {
+    width: 17vw; /* Adjust width if needed */
+    font-size: 1.55vh;
+    height: 7vh; /* Adjust height to fit content */
+    display: flex;
+    flex-direction: row; /* Align items horizontally */
+    align-items: center; /* Center items vertically */
+    gap: 1vh; /* Space between items */
+    position: relative;
+    top: 81vh;
+  }
+  
+  #appName h1 {
+    font-size: 3vh; /* Adjust font size if needed */
+    margin: 0; /* Removes default margin */
+    white-space: nowrap; /* Prevents wrapping */
+    font-family: nueLight;
+  }
+  
+  #appName img {
+    width: 2vw;
+    height: 4vh;
+  }
+  
+  #rightPart {
+    width: 83%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #chatInput {
+    margin-left: 10vw;
+    width: 70%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 2.75vw;
+  }
+  
+  #chatInput input {
+    width: 100%;
+    height: 40%;
+    border-radius: 12px;
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
+    padding: 1vh 2vw;
+    font-size: 2.12vh;
+    padding-right: 50px; 
+    font-family: nueThick;
+    border: 1px solid #B5C0D0;
+    outline: none;
+    position: relative;
+  }
+  
+  .new-send-button {
+    position: absolute;
+    right: 15px; 
+    width: 35px;
+    height: 35px;
+    border-radius: 50%; 
+    background-color: #007BFF; 
+    color: #FFFFFF; 
+    font-size: 2.5vh; 
+    border: none; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .new-send-button:hover {
+    background-color: #0056b3; 
+    transform: scale(1.1); 
+  }
+  
+  
+  #chatDiscusion {
+    width: 100%;
+    height: 80%;
+  }
+  
+  .theme-toggle-button {
+    cursor: pointer;
+    font-size: 22px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .theme-toggle-button #toggleIcon {
+    color: inherit;
+  }
+  
+  .theme-toggle-button #toggleIcon:hover {
+    transform: scale(1.1);
+  }
+  
