@@ -131,82 +131,51 @@
 }
 
 #mainLandingContent {
-    margin: 7vw 6.5vw;
+    margin: 0vw 6.5vw;
     position: relative;
    color:#222222;
-   
-}
-#Taglinegradient{
-   color:#3FA2F6;
-   font-family: nueLight;
-   font-size: 9em;
-   font-weight: 900;
-   line-height: 0.81;
-  
-   
     
+   height: 80vh;
+   display: flex;
+  flex-direction: column;
+   position: relative;
+   top: 11vh;
+   align-items: center;
+   text-transform: capitalize;
 }
-#mainLandingContent h2 {
-    font-family: nueLight;
-    font-size: 9em;
-    font-weight: 900;
-    line-height: 0.81;
-    color: #ffffff;
-}
+
+
 #mainLandingContent h3{
     font-family: nueLight;
-    margin-top: 2vh;
-    font-weight: 100;
-    display: flex;
-    margin-left: 1vw;
-    font-size: 2.25vh;
+    font-size: 8.5vw;
+    color: white;
+    
 }
-#videoContainer {
-    position: absolute;
-    /* background-color: red; */
-    width: 50vw;
-    height: 80vh;
-    border-radius: 20px;
-    right: -5vw;
-    top: -15vh;
+#mainLandingContent h4 {
+    font-family: nueLight;
+    font-size: 2.5vh;
+    color: white;
+    line-height: 2;
+}
+
+#subtagline {
+    font-family: nueThin;
+    margin-top: 6vh;
+   
+    width: 45vw;
+    height: 10vh;
+   font-weight: 100;
     display: flex;
-    gap: 4vh;
-    align-items: center; /* Center videos vertically */
+    align-items: center;
     justify-content: center;
+    text-align: center; /* Center-aligns text inside the div */
+}
+#subtagline  h4{
+    color: #B5C0D0;
 }
 
-
-#videoContainer1 {
-    display: flex;
-    flex-direction: column;
-    width: 45%;/* Adjusted width for better spacing */
-    height: 70%; /* Adjusted height to fit within container */
-    gap: 5vh;
-    /* background-color: yellow; */
-   margin-top: 1vh;
-}
-#videoContainer2{
- 
-    display: flex;
-    flex-direction: column;
-    width: 45%; /* Adjusted width for better spacing */
-    height: 70%; /* Adjusted height to fit within container */
-    gap: 5vh;
-    /* background-color: yellow; */
-    margin-top: 10vh;
-}
-
-#videoContainer1 video, #videoContainer2 video {
-    margin: 0 4px;
-    width: 97%;
-    height: auto; /* Preserve aspect ratio */
-    border-radius: 12px; /* Adjust this value for more or less curve */
-    overflow: hidden; /* Ensure the video content doesn't overflow the rounded corners */
-    transition: all ease 0.3s;
-}
-
-#videoContainer1 video:hover, #videoContainer2 video:hover{
-    transform: translateY(-15px);
+#mainLandingContent h3 span{
+    color: #0574D5;
 }
 
 #part2{
@@ -360,126 +329,7 @@
     position: relative;
    z-index: 2;
 }
-#bluge1, #bluge2, #bluge3, #bluge4 {
-    width: 21vw;
-    height: 49vh;
-    border-radius: 50%;
-    background-image: linear-gradient(60deg, #11235A 0%, #525CEB 37%, #40A2D8 65%, #5FBDFF 100%);
-    position: absolute;
-    filter: blur(70px) brightness(70%);
-    animation-direction: alternate-reverse;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-}
 
-#bluge1 {
-    top: 0;
-    left: 10vw;
-    animation-name: amoeba1;
-    animation-duration: 8s;
-}
-
-#bluge2 {
-    top: 0;
-    left: 10vw;
-    animation-name: amoeba2;
-    animation-duration: 8s;
-}
-
-#bluge3 {
-    top: 0;
-    left: 10vw;
-    animation-name: amoeba3;
-    animation-duration: 8s;
-}
-
-#bluge4 {
-    top: 0;
-    left: 10vw;
-    animation-name: amoeba4;
-    animation-duration: 8s;
-}
-
-@keyframes amoeba1 {
-    0% {
-        transform: translate(30%, -30%) rotate(0deg);
-    }
-    25% {
-        transform: translate(-10%, 25%) rotate(45deg);
-    }
-    50% {
-        transform: translate(-20%, -10%) rotate(90deg);
-    }
-    75% {
-        transform: translate(5%, 20%) rotate(135deg);
-    }
-    100% {
-        transform: translate(30%, -30%) rotate(180deg);
-    }
-}
-
-@keyframes amoeba2 {
-    0% {
-        transform: translate(-20%, 20%) rotate(0deg);
-    }
-    25% {
-        transform: translate(-10%, -20%) rotate(45deg);
-    }
-    50% {
-        transform: translate(15%, 10%) rotate(90deg);
-    }
-    75% {
-        transform: translate(20%, -15%) rotate(135deg);
-    }
-    100% {
-        transform: translate(-20%, 20%) rotate(180deg);
-    }
-}
-
-@keyframes amoeba3 {
-    0% {
-        transform: translate(10%, -10%) rotate(0deg);
-    }
-    25% {
-        transform: translate(-15%, 15%) rotate(45deg);
-    }
-    50% {
-        transform: translate(20%, -20%) rotate(90deg);
-    }
-    75% {
-        transform: translate(-10%, 25%) rotate(135deg);
-    }
-    100% {
-        transform: translate(10%, -10%) rotate(180deg);
-    }
-}
-
-@keyframes amoeba4 {
-    0% {
-        transform: translate(-25%, 10%) rotate(0deg);
-    }
-    25% {
-        transform: translate(20%, -10%) rotate(45deg);
-    }
-    50% {
-        transform: translate(-10%, 20%) rotate(90deg);
-    }
-    75% {
-        transform: translate(15%, -15%) rotate(135deg);
-    }
-    100% {
-        transform: translate(-25%, 10%) rotate(180deg);
-    }
-}
-
-#buldgeContainer{
-    position: relative;
-    top: -50vh;
-    width: 30vw;
-    height: 50vh;
-  
-    z-index: 1;
-}
 
 #part4 {
     width: 100vw;
@@ -578,4 +428,128 @@
     margin: 1rem; /* Adjust margin as needed */
     z-index: 9999; /* Ensure it is above other content */
   }
-  
+
+#content{
+    z-index: 9;
+    text-align: center;
+}
+
+#buldgeContainer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30vw;
+    height: 50vh;
+    z-index: 1;
+}
+
+#bluge1, #bluge2, #bluge3, #bluge4 {
+    width: 41vw;
+    height: 59vh;
+    border-radius: 50%;
+    background-image: linear-gradient(60deg, #11235A 0%, #525CEB 37%, #40A2D8 65%, #5FBDFF 100%);
+    position: absolute;
+    filter: blur(110px) brightness(50%);
+    animation-duration: 9s; /* General animation duration */
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+#bluge1 {
+    top: 0;
+    left: 0;
+    animation-name: amoeba1;
+}
+
+#bluge2 {
+    top: 0;
+    right: 0;
+    animation-name: amoeba2;
+}
+
+#bluge3 {
+    bottom: 0;
+    left: 0;
+    animation-name: amoeba3;
+}
+
+#bluge4 {
+    bottom: 0;
+    right: 0;
+    animation-name: amoeba4;
+}
+
+/* Amoeba keyframe animations */
+@keyframes amoeba1 {
+    0% {
+        transform: translate(30%, -30%) rotate(0deg);
+    }
+    25% {
+        transform: translate(-10%, 25%) rotate(45deg);
+    }
+    50% {
+        transform: translate(-20%, -10%) rotate(90deg);
+    }
+    75% {
+        transform: translate(5%, 20%) rotate(135deg);
+    }
+    100% {
+        transform: translate(30%, -30%) rotate(180deg);
+    }
+}
+
+@keyframes amoeba2 {
+    0% {
+        transform: translate(-20%, 20%) rotate(0deg);
+    }
+    25% {
+        transform: translate(-10%, -20%) rotate(45deg);
+    }
+    50% {
+        transform: translate(15%, 10%) rotate(90deg);
+    }
+    75% {
+        transform: translate(20%, -15%) rotate(135deg);
+    }
+    100% {
+        transform: translate(-20%, 20%) rotate(180deg);
+    }
+}
+
+@keyframes amoeba3 {
+    0% {
+        transform: translate(10%, -10%) rotate(0deg);
+    }
+    25% {
+        transform: translate(-15%, 15%) rotate(45deg);
+    }
+    50% {
+        transform: translate(20%, -20%) rotate(90deg);
+    }
+    75% {
+        transform: translate(-10%, 25%) rotate(135deg);
+    }
+    100% {
+        transform: translate(10%, -10%) rotate(180deg);
+    }
+}
+
+@keyframes amoeba4 {
+    0% {
+        transform: translate(-25%, 10%) rotate(0deg);
+    }
+    25% {
+        transform: translate(20%, -10%) rotate(45deg);
+    }
+    50% {
+        transform: translate(-10%, 20%) rotate(90deg);
+    }
+    75% {
+        transform: translate(15%, -15%) rotate(135deg);
+    }
+    100% {
+        transform: translate(-25%, 10%) rotate(180deg);
+    }
+}

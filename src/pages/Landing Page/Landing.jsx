@@ -8,6 +8,7 @@ import Priyanshu from '../../assets/images/priyanshu.png';
 import Rudra from '../../assets/images/rudra.png';
 import prince from '../../assets/images/prince.png';
 import Avikshit from '../../assets/images/me.png';
+import LandImage from '../../assets/images/LImage.png'
 import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -29,10 +30,10 @@ const Landing = () => {
       .then(
         () => {
           toast.success('✅ Email sent successfully!');
-          form.current.reset(); // Reset form on success
+          form.current.reset();
           document.getElementById('part1').scrollIntoView({
-            behavior: 'smooth', // Smooth scrolling
-            block: 'start', // Align to the top of the viewport
+            behavior: 'smooth', 
+            block: 'start', 
           });
         },
         (error) => {
@@ -61,26 +62,20 @@ const Landing = () => {
           </nav>
 
           <div id="mainLandingContent">
-            <div id="writtenContent">
-              <h2>LEGAL</h2>
-              <h2> MADE</h2>
-              <h1 id="Taglinegradient">SIMPLE</h1>
+            <div id="content">
+            <h3>Legal Made</h3>
+            <h3> <span>Simple</span></h3>
+
+           <div id='subtagline'>
+              <h4> With AI technology, we turn complex legal issues into clear, simple solutions, providing instant and effortless clarity.</h4>
+           </div>
             </div>
-            <div id="buldgeContainer">
+            
+           <div id="buldgeContainer">
               <div id="bluge1"></div>
               <div id="bluge2"></div>
               <div id="bluge3"></div>
               <div id="bluge4"></div>
-            </div>
-            <div id="videoContainer">
-              <div id="videoContainer1">
-                <video src={Video} autoPlay muted loop></video>
-                <video src={Video} autoPlay muted loop></video>
-              </div>
-              <div id="videoContainer2">
-                <video src={Video} autoPlay muted loop></video>
-                <video src={Video} autoPlay muted loop></video>
-              </div>
             </div>
           </div>
         </div>
