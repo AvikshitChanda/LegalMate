@@ -3,9 +3,10 @@ import './chat.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../../assets/images/logo.png';
 import { faMoon, faSun, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 const Chat = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true); // Default dark mode
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const chatContainerRef = useRef(null);
@@ -14,9 +15,39 @@ const Chat = () => {
     setIsDarkMode(!isDarkMode);
   };
 
-  const handleSendMessage = () => {
+
+
+  const handleSendMessage = async () => {
     if (input.trim()) {
+      // Add the user's message to the chat
       setMessages([...messages, { text: input, type: 'user' }]);
+
+      try {
+        // Send user's message to the Flask API
+        const response = await fetch('http://localhost:5000/ask', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ question: input }),
+        });
+
+        const data = await response.json();
+
+        // Add AI's response to the chat
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { text: data.answer, type: 'bot' },
+        ]);
+      } catch (error) {
+        // Handle error (e.g., server down)
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { text: 'Error: Could not reach the server', type: 'error' },
+        ]);
+      }
+
+      // Clear the input field
       setInput('');
     }
   };
@@ -34,84 +65,45 @@ const Chat = () => {
   }, [messages]);
 
   return (
-    <div
-      id="container"
-      className={isDarkMode ? 'dark-mode' : 'light-mode'}
-      style={{
-        backgroundColor: isDarkMode ? '#18181B' : '#FAFAFA', 
-        color: isDarkMode ? '#FFFFFF' : '#000000', 
-      }}
-    >
-      <div
-        id="leftPart"
-        style={{
-          backgroundColor: isDarkMode ? '#27272A' : '#E0E0E0', 
-          border: isDarkMode ? '1px solid #27272A' : '1px solid #B5C0D0',
-        }}
-      >
+    <div id="container" className={isDarkMode ? 'dark-mode' : 'light-mode'}>
+      <div id="leftPart">
         <div
           className="theme-toggle-button"
           onClick={toggleTheme}
           title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-          style={{
-            color: isDarkMode ? '#FFFFFF' : '#000000', 
-          }}
         >
           <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} id="toggleIcon" />
-          <div
-            id="appName"
-            style={{
-              color: isDarkMode ? '#FFFFFF' : '#000000', 
-            }}
-          >
+          <div id="appName">
             <img src={Logo} alt="Logo" />
             <h1>LegalMate.AI</h1>
           </div>
         </div>
       </div>
-      <div
-        id="rightPart"
-        style={{
-          backgroundColor: isDarkMode ? '#1F1F23' : '#FAFAFA', 
-        }}
-      >
-        <div
-          id="chatDiscussion"
-          ref={chatContainerRef}
-          style={{
-            padding: '10px',
-            height: 'calc(100vh - 150px)', 
-            overflowY: 'auto',
-          }}
-        >
+      <div id="rightPart">
+        <div id="chatDiscussSection">
+          <div id="innerDiscuss">
           {messages.map((msg, index) => (
-            <div key={index} className={msg.type} style={{ marginBottom: '10px' }}>
-              {msg.text}
-            </div>
+          <div key={index} className={`message ${msg.type === 'user' ? 'user-message' : 'bot-message'}`}>
+            {msg.text}
+          </div>
           ))}
+
+          </div>
         </div>
         <div id="chatInput">
-          <input
+        <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyPress}
             placeholder="Hey! Feel free to ask me any legal questions you may have."
-            style={{
-              backgroundColor: isDarkMode ? '#444444' : '#FFFFFF', 
-              color: isDarkMode ? '#FFFFFF' : '#000000', 
-              borderColor: isDarkMode ? '#555555' : '#CCCCCC', 
-            }}
-          />
-          <button
-            className="new-send-button"
-            onClick={handleSendMessage}
-            title="Send"
-          >
+        />
+        <button className="new-send-button" onClick={handleSendMessage} title="Send">
             <FontAwesomeIcon icon={faArrowRight} />
-          </button>
-        </div>
-      </div>
+        </button>
+    </div>
+</div>
+
     </div>
   );
 };

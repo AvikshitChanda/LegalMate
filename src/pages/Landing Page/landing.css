@@ -167,12 +167,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center; /* Center-aligns text inside the div */
+    text-align: center; 
 }
 
 #subtagline h4 {
     color: #B5C0D0;
-    word-spacing: 0.125em; /* Adds spacing between words */
+    word-spacing: 0.125em;
 }
 
 
@@ -183,7 +183,7 @@
 #part2{
     width: 100%;
     height: 100vh;
-    /* background-color: red; */
+  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -205,7 +205,7 @@
     border-radius: 10px;
     padding: 2vw;
     color: #ffffff;
-    /* background-color: red; */
+    
     
 }
 
@@ -224,7 +224,7 @@
     height: 75vh;
     background-color: yellow;
     border-radius: 10px;
-    overflow: hidden; /* Ensures any overflow is hidden */
+    overflow: hidden; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -347,7 +347,7 @@
     color: white;
     font-family: nueBold;
     font-size: 5vw;
-    margin-bottom: 2rem; /* Add some space between the heading and form */
+    margin-bottom: 2rem; 
     text-align: center;
 }
 #part4 {
@@ -357,7 +357,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #0D0B18; /* Page background color */
+    background-color: #0D0B18; 
 }
 
 #part4 h1 {
@@ -370,12 +370,12 @@
 #form {
     font-family: nueLight;
     width: 35%;
-    background: #292639; /* Contrasting form background color */
+    background: #292639; 
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-top: 5vh;
-    position: relative; /* Ensure the toast can be positioned relative to this container */
+    position: relative; 
 }
 
 #form label {
@@ -392,18 +392,18 @@
     width: 100%;
     padding: 0.75rem;
     margin-bottom: 1rem;
-    border: none; /* Remove the border */
+    border: none;
     border-radius: 4px;
     font-size: 1rem;
     font-family: Arial, sans-serif;
-    background-color: #1F1B29; /* Slightly lighter background for inputs */
-    color: white; /* Text color for contrast */
-    outline: none; /* Remove the focus outline */
+    background-color: #1F1B29; 
+    color: white; 
+    outline: none; 
 }
 
 #form textarea {
     height: 150px;
-    resize: none; /* Prevent resizing of the textarea */
+    resize: none; 
 }
 
 #form input[type="submit"] {
@@ -422,13 +422,13 @@
 #form input[type="submit"]:hover {
     background-color:#023766;
 }
-/* toastStyles.css */
+
 .toast-container {
     position: fixed;
     top: 0;
     right: 0;
-    margin: 1rem; /* Adjust margin as needed */
-    z-index: 9999; /* Ensure it is above other content */
+    margin: 1rem; 
+    z-index: 9999;
   }
 
 #content{
@@ -453,7 +453,7 @@
     background-image: linear-gradient(60deg, #11235A 0%, #525CEB 37%, #40A2D8 65%, #5FBDFF 100%);
     position: absolute;
     filter: blur(110px) brightness(50%);
-    animation-duration: 9s; /* General animation duration */
+    animation-duration: 9s; 
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
@@ -483,7 +483,7 @@
     animation-name: amoeba4;
 }
 
-/* Amoeba keyframe animations */
+
 @keyframes amoeba1 {
     0% {
         transform: translate(30%, -30%) rotate(0deg);

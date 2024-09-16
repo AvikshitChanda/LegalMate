@@ -1,149 +1,255 @@
 @font-face {
-    font-family: nueLight;
-    src: url('./assets/fonts/NeueHaasDisplayMediu.ttf');
-  }
-  @font-face {
-    font-family: nueThick;
-    src: url('../../assets/fonts/NeueHaasDisplayRoman.ttf');
-  }
-  
-  body {
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .dark-mode {
-    background-color: #18181b;
-    color: #ffffff;
-    --input-bg-color: #000000;
-    --input-text-color: #ffffff;
-  }
-  
-  .light-mode {
-    background-color: #fafafa;
-    color: #000000;
-    --input-bg-color: #ffffff;
-    --input-text-color: #000000;
-  }
-  
-  #container {
-    display: flex;
-    height: 100vh;
-  }
-  
-  #leftPart {
-    width: 17%;
-    background-color: #27272a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    
-  }
-  
-  #appName {
-    width: 17vw; /* Adjust width if needed */
-    font-size: 1.55vh;
-    height: 7vh; /* Adjust height to fit content */
-    display: flex;
-    flex-direction: row; /* Align items horizontally */
-    align-items: center; /* Center items vertically */
-    gap: 1vh; /* Space between items */
-    position: relative;
-    top: 81vh;
-  }
-  
-  #appName h1 {
-    font-size: 3vh; /* Adjust font size if needed */
-    margin: 0; /* Removes default margin */
-    white-space: nowrap; /* Prevents wrapping */
-    font-family: nueLight;
-  }
-  
-  #appName img {
-    width: 2vw;
-    height: 4vh;
-  }
-  
-  #rightPart {
-    width: 83%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  #chatInput {
-    margin-left: 10vw;
-    width: 70%;
-    height: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    left: 2.75vw;
-  }
-  
-  #chatInput input {
-    width: 100%;
-    height: 40%;
-    border-radius: 12px;
-    background-color: var(--input-bg-color);
-    color: var(--input-text-color);
-    padding: 1vh 2vw;
-    font-size: 2.12vh;
-    padding-right: 50px; 
-    font-family: nueThick;
-    border: 1px solid #B5C0D0;
-    outline: none;
-    position: relative;
-  }
-  
-  .new-send-button {
-    position: absolute;
-    right: 15px; 
-    width: 35px;
-    height: 35px;
-    border-radius: 50%; 
-    background-color: #007BFF; 
-    color: #FFFFFF; 
-    font-size: 2.5vh; 
-    border: none; 
-    cursor: pointer; 
-    transition: background-color 0.3s, transform 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .new-send-button:hover {
-    background-color: #0056b3; 
-    transform: scale(1.1); 
-  }
-  
-  
-  #chatDiscussion {
-    font-family: nueLight;
-    width: 100%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    margin: 4vw 12vw;
-    box-sizing: border-box;   
-  }
-  
-  
-  .theme-toggle-button {
-    cursor: pointer;
-    font-size: 22px;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    transition: color 0.3s, transform 0.3s;
-  }
-  
-  .theme-toggle-button #toggleIcon {
-    color: inherit;
-  }
-  
-  .theme-toggle-button #toggleIcon:hover {
-    transform: scale(1.1);
-  }
-  
+  font-family: nueLight;
+  src: url('./assets/fonts/NeueHaasDisplayMediu.ttf');
+}
+@font-face {
+  font-family: nueThick;
+  src: url('../../assets/fonts/NeueHaasDisplayRoman.ttf');
+}
+
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode {
+  background-color: #18181b;
+  color: #ffffff;
+  --input-bg-color: #000000;
+  --input-text-color: #ffffff;
+  --left-bg-color: #27272a;
+  --right-bg-color: #18181b;
+  --border-color: #444444;
+}
+
+.light-mode {
+  background-color: #fafafa;
+  color: #000000;
+  --input-bg-color: #ffffff;
+  --input-text-color: #000000;
+  --left-bg-color: #e0e0e0;
+  --right-bg-color: #fafafa;
+  --border-color: #b5c0d0;
+}
+
+#container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Ensure the left part changes with dark/light mode */
+#leftPart {
+  flex: 1.8; /* 20% of the width */
+  background-color: var(--left-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background-color 0.3s, border 0.3s;
+  border-right: 1px solid var(--border-color);
+}
+
+#appName {
+  width: 17vw;
+  font-size: 1.55vh;
+  height: 7vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1vh;
+  position: relative;
+  top: 81vh;
+}
+
+#appName h1 {
+  font-size: 3vh;
+  margin: 0;
+  white-space: nowrap;
+  font-family: nueLight;
+}
+
+#appName img {
+  width: 2vw;
+  height: 4vh;
+}
+
+/* Ensure the right part changes with dark/light mode */
+#rightPart {
+
+  flex: 7.8; /* 80% of the width */
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* Vertical stacking of the two sections */
+  background-color: var(--right-bg-color); /* Customize background as needed */
+  transition: background-color 0.3s, color 0.3s;
+}
+#chatInput {
+  width: 100%;
+  flex: 1.5; /* Takes 20% of the parent height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: yellow;  */
+  padding: 1vw;
+  box-sizing: border-box;
+}
+
+#chatInput input {
+  width: 80%; /* Adjust input size */
+  height: 50px;
+  border-radius: 18px;
+  background-color: var(--bot-message-bg-color);
+  color: var(--input-text-color);
+  padding: 1vh 2vw;
+  font-size: 2.12vh;
+  padding-right: 50px;
+  font-family: nueThick;
+  border: 1px solid var(--border-color);
+  outline: none;
+}
+
+.new-send-button {
+  margin-left: 10px; /* Adjust as necessary */
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: var(--button-bg-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Send button styling */
+.new-send-button {
+  position: absolute;
+  right: 10vw;
+  bottom: 50px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 2.5vh;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-send-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* #chatDiscussion {
+  font-family: nueLight;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4vw; 
+  margin-right: 3vw; 
+  box-sizing: border-box;
+  background-color: red;
+  padding-right: 3vw; 
+} */
+
+#chatDiscussSection {
+  width: 100%;
+  flex: 8.5; /* Takes 80% of the parent height */
+  /* background-color: red; */
+  overflow-x: hidden; /* Disable horizontal scrolling */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+}
+.message {
+  max-width: 60%;
+  padding: 10px 15px;
+  margin: 10px;
+  border-radius: 18px;
+  font-size: 2vh;
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+/* Styling for user messages */
+.user-message {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end; /* Pushes the message to the right */
+  text-align: right;
+  border-radius: 18px 18px 0 18px; /* Custom border radius for user message */
+}
+
+.bot-message {
+  background-color: var(--bot-message-bg-color); /* Dynamic background color */
+  color: var(--bot-message-text-color);          /* Dynamic text color */
+  align-self: flex-start;  /* Pushes the message to the left */
+  text-align: left;
+  border-radius: 18px 18px 18px 0; /* Custom border radius for bot message */
+  padding: 10px;
+  max-width: 60%; /* To prevent messages from spanning full width */
+  word-wrap: break-word; /* Ensures long words break into the next line */
+  margin-bottom: 10px;
+ 
+}
+
+/* Container for the chat messages */
+#innerDiscuss {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Ensures bot messages align left */
+  padding-left: 15vw; /* Apply vertical padding to create space without affecting the width */
+  padding-right: 15vw;
+  padding-top: 3vw;
+  padding-bottom: 1vw;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+
+
+/* Theme toggle button */
+.theme-toggle-button {
+  cursor: pointer;
+  font-size: 22px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.theme-toggle-button #toggleIcon {
+  color: inherit;
+}
+
+.theme-toggle-button #toggleIcon:hover {
+  transform: scale(1.1);
+}
+.dark-mode {
+  background-color: #18181b;
+  color: #ffffff;
+  --input-bg-color: #000000;
+  --input-text-color: #ffffff;
+  --left-bg-color: #27272a;
+  --right-bg-color: #18181b;
+  --border-color: #444444;
+  --bot-message-bg-color: #2f2f2f; /* Dark background for bot messages */
+}
+
+.light-mode {
+  background-color: #fafafa;
+  color: #000000;
+  --input-bg-color: #ffffff;
+  --input-text-color: #000000;
+  --left-bg-color: #e0e0e0;
+  --right-bg-color: #fafafa;
+  --border-color: #b5c0d0;
+  --bot-message-bg-color: #f1f1f1; /* Light background for bot messages */
+}

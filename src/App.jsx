@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     const loader = document.querySelector("#loader");
 
-    // Hide loader after 2.9 seconds
+   
     setTimeout(() => {
       loader.style.top = "-100%";
     }, 3100);
@@ -23,7 +23,7 @@ function App() {
       smooth: true,
     });
 
-    // Cleanup on unmount
+    
     return () => {
       if (scroll) scroll.destroy();
     };
@@ -41,7 +41,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/chat" element={<Chat />} />
-          {/* Add more routes here as needed */}
+         
         </Routes>
       </div>
     </Router>
