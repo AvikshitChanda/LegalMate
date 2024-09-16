@@ -3,27 +3,26 @@ import './chat.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../../assets/images/logo.png';
 import { faMoon, faSun, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+
 
 const Chat = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true); // Default dark mode
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false); 
   const chatContainerRef = useRef(null);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
 
-
-
   const handleSendMessage = async () => {
     if (input.trim()) {
-      // Add the user's message to the chat
       setMessages([...messages, { text: input, type: 'user' }]);
+      setInput(''); 
+      setIsLoading(true); 
 
       try {
-        // Send user's message to the Flask API
         const response = await fetch('http://localhost:5000/ask', {
           method: 'POST',
           headers: {
@@ -34,21 +33,19 @@ const Chat = () => {
 
         const data = await response.json();
 
-        // Add AI's response to the chat
+       
         setMessages((prevMessages) => [
           ...prevMessages,
           { text: data.answer, type: 'bot' },
         ]);
       } catch (error) {
-        // Handle error (e.g., server down)
         setMessages((prevMessages) => [
           ...prevMessages,
           { text: 'Error: Could not reach the server', type: 'error' },
         ]);
       }
 
-      // Clear the input field
-      setInput('');
+      setIsLoading(false); 
     }
   };
 
@@ -82,28 +79,39 @@ const Chat = () => {
       <div id="rightPart">
         <div id="chatDiscussSection">
           <div id="innerDiscuss">
-          {messages.map((msg, index) => (
-          <div key={index} className={`message ${msg.type === 'user' ? 'user-message' : 'bot-message'}`}>
-            {msg.text}
-          </div>
-          ))}
-
+            {messages.map((msg, index) => (
+              <div
+                key={index}
+                className={`message ${msg.type === 'user' ? 'user-message' : 'bot-message'}`}
+              >
+                {msg.text}
+              </div>
+            ))}
           </div>
         </div>
+
+        {isLoading && (
+          <div id="thinking">
+            AI is thinking
+            <span className="dot one">.</span>
+            <span className="dot two">.</span>
+            <span className="dot three">.</span>
+          </div>
+        )}
+
         <div id="chatInput">
-        <input
+          <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyPress}
             placeholder="Hey! Feel free to ask me any legal questions you may have."
-        />
-        <button className="new-send-button" onClick={handleSendMessage} title="Send">
+          />
+          <button className="new-send-button" onClick={handleSendMessage} title="Send">
             <FontAwesomeIcon icon={faArrowRight} />
-        </button>
-    </div>
-</div>
-
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
